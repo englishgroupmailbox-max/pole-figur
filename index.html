@@ -13,7 +13,7 @@
 <section class="card" id="formulas"><h2>📖 Wzory</h2><p>Kwadrat: P = a · a</p><p>Prostokąt: P = a · b</p><p>Równoległobok: P = a · h</p><p>Romb: P = (e · f) / 2</p><p>Trójkąt: P = (a · h) / 2</p><p>Trapez: P = ((a + b) · h) / 2</p><p>Koło: P = 3,14 · r · r</p></section>
 </main><script>
 const names=["Łatwy","Średni","Trudny","Szalony","Ekstremalny","Niewykonalny"];
-const shapes=[["Kwadrat","Prostokąt"],["Kwadrat","Prostokąt","Równoległobok"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez","Koło"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez","Koło"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez","Koło"]];
+const shapes=[["Kwadrat","Prostokąt"],["Kwadrat","Prostokąt","Równoległobok"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez","Koło"],["Kwadrat","Prostokąt","Równoległobok","Romb","Trójkąt","Trapez","Koło"]];
 let level=0,score=0,streak=0,correct=0,task,locked=false;const $=id=>document.getElementById(id),rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 function dim(){if(level<3){let n=rand(2,12);return {v:n,t:String(n)}}if(level===3){let a=rand(2,6),b=rand(2,6);return {v:a+b,t:"("+a+" + "+b+")"}}if(level===4){let a=rand(2,5),b=rand(2,5),c=rand(2,5);return {v:a*(b+c),t:a+" · ("+b+" + "+c+")"}}let a=rand(2,4),b=rand(2,4),c=rand(2,4),d=rand(2,4);return {v:a*a+b*(c+d),t:"["+a+"² + "+b+" · ("+c+" + "+d+")]"}}
 function makeTask(){let n=shapes[level][rand(0,shapes[level].length-1)],a=dim(),b=dim(),h=dim(),e=dim(),f=dim(),r=dim(),area,dimensions,formula;switch(n){
